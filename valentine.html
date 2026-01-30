@@ -721,16 +721,13 @@
 
         .photo-grid-inputs {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 15px;
             text-align: left;
             margin-bottom: 20px;
         }
 
-        /* Make the first item span 2 columns for a centered top input */
-        .photo-grid-inputs div:first-child {
-            grid-column: span 2;
-        }
+        /* First item span rule removed for strict vertical stacking */
 
         @media (max-width: 600px) {
             .photo-grid-inputs {
