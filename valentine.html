@@ -1282,25 +1282,6 @@
     </footer>
 
     <script>
-        // Create floating hearts
-        function createFloatingHearts() {
-            const container = document.getElementById('heartsContainer');
-            const hearts = ['💕', '💖', '💗', '💓', '💝', '❤️', '💘', '💞', '🌹', '✨'];
-
-            for (let i = 0; i < 30; i++) {
-                setTimeout(() => {
-                    const heart = document.createElement('div');
-                    heart.className = 'floating-heart';
-                    heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-                    heart.style.left = Math.random() * 100 + '%';
-                    heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
-                    heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                    heart.style.animationDelay = (Math.random() * 5) + 's';
-                    container.appendChild(heart);
-                }, i * 200);
-            }
-        }
-
         // Smooth scroll for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1777,7 +1758,7 @@
 
                 try {
                     // Fetch surprise data directly
-                    const response = await fetch(`http://localhost:3000/api/get-surprise/${surpriseId}`);
+                    const response = await fetch(`/api/get-surprise/${surpriseId}`);
                     const result = await response.json();
 
                     if (result.success) {
