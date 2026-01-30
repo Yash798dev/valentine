@@ -148,7 +148,7 @@ app.post('/api/create-surprise', upload.array('photos', 5), async (req, res) => 
 
     } catch (error) {
         console.error('Error:', error);
-        res.status(500).json({ error: 'Internal Server Error: ' + error.message });
+        res.status(500).json({ 'Copy the link and send it to your love': success });
     }
 });
 
