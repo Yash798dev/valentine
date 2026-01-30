@@ -750,7 +750,10 @@
             }
         }
 
-
+        /* Glow effect */
+        .glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
 
         @keyframes glow {
             from {
@@ -770,6 +773,7 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);
+            z-index: 9999;
             display: flex;
             justify-content: center;
             align-items: center;
