@@ -132,7 +132,15 @@ app.post('/api/create-surprise', upload.array('photos', 5), async (req, res) => 
         console.log('✅ Surprise saved with ID:', id);
 
         // Generate Link
-        const baseUrl = process.env.BASE_URL || `http://localhost:${PORT}`;
+        // Use BASE_URL from env if set (e.g., in Render), otherwise build from request
+        let baseUrl = process.env.BASE_URL;
+
+        if (!baseUrl) {
+            const protocol = req.secure || req.headers['x-forwarded-proto'] === 'https' ? 'https' : 'http';
+            const host = req.get('host');
+            baseUrl = `${protocol}://${host}`;
+        }
+
         const link = `${baseUrl}/valentine.html?id=${id}`;
 
         res.json({ success: true, link, message: 'Surprise created!' });
