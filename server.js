@@ -95,7 +95,7 @@ const sharp = require('sharp'); // For image compression
 // API: Create Surprise
 app.post('/api/create-surprise', upload.array('photos', 5), async (req, res) => {
     try {
-        const { partnerName, senderName } = req.body;
+        const { partnerName, senderName, customLetter } = req.body;
         const files = req.files;
 
         if (!files || files.length < 5) {
@@ -123,6 +123,7 @@ app.post('/api/create-surprise', upload.array('photos', 5), async (req, res) => 
             secretKey,
             partnerName,
             senderName,
+            customLetter: customLetter || null, // Store custom letter if provided
             photos: validFiles,
             createdAt: new Date()
         };

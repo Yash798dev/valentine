@@ -1037,6 +1037,23 @@
                     </div>
                 </div>
 
+                <!-- Love Letter Toggle -->
+                <div class="input-group" style="margin-top: 20px;">
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                        <input type="checkbox" id="editLetterToggle"
+                            style="width: 18px; height: 18px; accent-color: var(--primary);">
+                        <span>Write Your Own Love Letter 💌</span>
+                    </label>
+                </div>
+
+                <div id="customLetterSection" style="display: none; margin-bottom: 20px;">
+                    <textarea id="customLetter"
+                        placeholder="Write your heartfelt message here... (Each paragraph will be separated automatically)"
+                        style="width: 100%; height: 150px; padding: 15px; border: 2px solid #f8bbd9; border-radius: 10px; font-family: 'Poppins', sans-serif; resize: vertical; outline: none;"></textarea>
+                    <p style="font-size: 0.8rem; color: #999; margin-top: 5px;">Tip: Press Enter twice to start a new
+                        paragraph.</p>
+                </div>
+
                 <button type="submit" class="cta-btn" style="width: 100%;">Create Surprise ✨</button>
             </form>
         </div>
@@ -1293,11 +1310,11 @@
                         📋
                     </button>
                 </div>
-                <!-- WhatsApp Share Button -->
+                <!-- WhatsApp Share Button 
                 <a id="whatsappShareBtn" href="#" target="_blank"
                     style="display: block; margin-top: 15px; padding: 10px; background: #25D366; color: white; text-align: center; text-decoration: none; border-radius: 5px; font-weight: bold;">
                     Share on WhatsApp 💬
-                </a>
+                </a>-->
             </div>
 
             <button id="closeShareModalBtn"
@@ -1337,6 +1354,15 @@
             }
         }
         createFloatingHearts();
+
+        // Toggle for custom letter textarea
+        const editLetterToggle = document.getElementById('editLetterToggle');
+        const customLetterSection = document.getElementById('customLetterSection');
+        if (editLetterToggle && customLetterSection) {
+            editLetterToggle.addEventListener('change', () => {
+                customLetterSection.style.display = editLetterToggle.checked ? 'block' : 'none';
+            });
+        }
 
         // Smooth scroll for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1548,6 +1574,16 @@
             // Update Love Letter Signature
             document.querySelector('.letter-signature').innerHTML = `Forever & Always Yours,<br>${senderName} 💕`;
 
+            // Handle Custom Love Letter
+            const editLetterToggle = document.getElementById('editLetterToggle');
+            const customLetterText = document.getElementById('customLetter').value.trim();
+            if (editLetterToggle.checked && customLetterText) {
+                // Split by double newlines to create paragraphs
+                const paragraphs = customLetterText.split(/\n\n+/).filter(p => p.trim());
+                const letterBody = document.querySelector('.letter-body');
+                letterBody.innerHTML = paragraphs.map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
+            }
+
             // Process images
             inputIds.forEach((id, index) => {
                 const file = document.getElementById(id).files[0];
@@ -1625,7 +1661,7 @@
                 const senderName = document.getElementById('senderName').value;
 
                 // Hide button show loading
-                confirmShareBtn.textContent = 'Generating... ⏳';
+                confirmShareBtn.textContent = 'Romantic Letter for your Love is Cooking Strongly Wait for 2-3 Minutes... ⏳';
                 confirmShareBtn.disabled = true;
 
                 const inputIds = ['img1', 'img2', 'img3', 'img4', 'img5'];
@@ -1647,6 +1683,13 @@
                 const formData = new FormData();
                 formData.append('partnerName', partnerName);
                 formData.append('senderName', senderName);
+
+                // Include custom letter if toggle is on
+                const editLetterToggle = document.getElementById('editLetterToggle');
+                const customLetterText = document.getElementById('customLetter').value.trim();
+                if (editLetterToggle.checked && customLetterText) {
+                    formData.append('customLetter', customLetterText);
+                }
 
                 inputIds.forEach(id => {
                     formData.append('photos', document.getElementById(id).files[0]);
@@ -1831,6 +1874,13 @@
 
                         document.querySelector('.hero .names span').textContent = data.partnerName;
                         document.querySelector('.letter-signature').innerHTML = `Forever & Always Yours,<br>${data.senderName} 💕`;
+
+                        // Load Custom Letter if exists
+                        if (data.customLetter) {
+                            const paragraphs = data.customLetter.split(/\n\n+/).filter(p => p.trim());
+                            const letterBody = document.querySelector('.letter-body');
+                            letterBody.innerHTML = paragraphs.map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
+                        }
 
                         // Load Images
                         const galleryItems = document.querySelectorAll('.gallery-item');
