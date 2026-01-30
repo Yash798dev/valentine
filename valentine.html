@@ -49,7 +49,44 @@
             width: 450px;
         }
 
-        /* Hearts Background Removed */
+        /* Floating Hearts Background */
+        .hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 20px;
+            animation: floatUp linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(1);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.6;
+            }
+
+            90% {
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(720deg) scale(0.5);
+                opacity: 0;
+            }
+        }
 
 
 
@@ -1005,6 +1042,10 @@
         </div>
     </div>
 
+
+    <!-- Floating Hearts Background -->
+    <div class="hearts-bg" id="heartsContainer"></div>
+
     <!-- Navigation -->
     <nav>
         <div class="logo">💕 Forever Yours</div>
@@ -1276,6 +1317,27 @@
     </footer>
 
     <script>
+        // Create floating hearts
+        function createFloatingHearts() {
+            const container = document.getElementById('heartsContainer');
+            if (!container) return;
+            const hearts = ['💕', '💖', '💗', '💓', '💝', '❤️', '💘', '💞', '🌹', '✨'];
+
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'floating-heart';
+                    heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                    heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                    heart.style.animationDelay = (Math.random() * 5) + 's';
+                    container.appendChild(heart);
+                }, i * 300);
+            }
+        }
+        createFloatingHearts();
+
         // Smooth scroll for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1309,8 +1371,8 @@
         document.querySelectorAll('.day-card, .timeline-content, .gallery-item, .wish-card, .journey-step, .padi-step, .padi-destination, .roadmap-step, .roadmap-destination').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.8s ease'; // Increased duration for smoother effect
-            observer.observe(el);
+            el.style.transition = 'all 0s ease'; // Increased duration for smoother effect
+            observer.observe(el)
         });
 
         // Add sparkle effect on hover for cards
@@ -1338,8 +1400,6 @@
             }
         });
 
-        // Initialize
-        createFloatingHearts();
 
         // Continuously add new hearts
         setInterval(() => {
@@ -1593,7 +1653,13 @@
                 });
 
                 try {
-                    const response = await fetch('/api/create-surprise', {
+                    // Determine API URL
+                    // If on deployed site or localhost server, use relative path
+                    // If opening file directly (file://), use localhost:3000
+                    const isLocalFile = window.location.protocol === 'file:';
+                    const baseUrl = isLocalFile ? 'http://localhost:3000' : '';
+
+                    const response = await fetch(`${baseUrl}/api/create-surprise`, {
                         method: 'POST',
                         body: formData
                     });
@@ -1751,8 +1817,12 @@
                 setupOverlay.style.opacity = '1';
 
                 try {
+                    // Determine API URL
+                    const isLocalFile = window.location.protocol === 'file:';
+                    const baseUrl = isLocalFile ? 'http://localhost:3000' : '';
+
                     // Fetch surprise data directly
-                    const response = await fetch(`/api/get-surprise/${surpriseId}`);
+                    const response = await fetch(`${baseUrl}/api/get-surprise/${surpriseId}`);
                     const result = await response.json();
 
                     if (result.success) {
