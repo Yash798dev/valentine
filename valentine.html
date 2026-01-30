@@ -791,7 +791,7 @@
             border-radius: 10px;
             font-family: 'Poppins', sans-serif;
             outline: none;
-            transition: border-color 0.3s;
+            /* transition removed for instant feel */
         }
 
         .input-group input:focus {
@@ -1643,7 +1643,7 @@
                 });
 
                 try {
-                    const response = await fetch('http://localhost:3000/api/create-surprise', {
+                    const response = await fetch('/api/create-surprise', {
                         method: 'POST',
                         body: formData
                     });
