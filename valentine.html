@@ -715,21 +715,35 @@
             z-index: 9999;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
+            /* Start from top to allow scrolling */
+            overflow-y: auto;
+            /* Scroll on the overlay if needed */
+            padding: 20px 0;
+            /* Add top/bottom space for scrolling content */
+            transition: none !important;
+            /* Force no transition */
+            animation: none !important;
+            /* Force no animation */
         }
 
         .setup-container {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
             border-radius: 20px;
             box-shadow: 0 10px 40px rgba(233, 30, 99, 0.3);
             text-align: center;
             max-width: 600px;
             width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
+            /* Removed fixed height and internal scroll */
+            margin: auto 0;
+            /* Center vertically if space allows, otherwise flows */
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: none !important;
+            /* Force no transition */
+            animation: none !important;
+            /* Force no animation */
         }
 
         .setup-container h2 {
@@ -737,11 +751,7 @@
             color: var(--primary);
             font-size: 2.5rem;
             margin-bottom: 20px;
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 10px 0;
-            z-index: 10;
+            /* Removed sticky to behave normally in flow */
         }
 
         .photo-grid-inputs {
