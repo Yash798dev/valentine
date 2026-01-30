@@ -178,6 +178,11 @@ app.get('/api/check-surprise/:id', async (req, res) => {
     }
 });
 
+// Root Route - Redirect to valentine.html
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'valentine.html'));
+});
+
 // Start Server
 async function startServer() {
     const connected = await connectToMongoDB();
