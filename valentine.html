@@ -636,14 +636,10 @@
             opacity: 0.7;
         }
 
-        /* Responsive Design Improvements */
+        /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
-            }
-
-            .hero h1 {
-                font-size: 3.5rem;
             }
 
             .timeline::before {
@@ -651,78 +647,25 @@
             }
 
             .timeline-item {
-                flex-direction: column;
-                align-items: flex-start;
-                margin-left: 50px;
-                margin-bottom: 40px;
-                justify-content: flex-start !important;
+                justify-content: flex-end !important;
             }
 
             .timeline-content {
-                width: 100%;
-                text-align: left;
+                width: 85%;
             }
 
             .timeline-dot {
                 left: 20px;
-                top: 0;
-            }
-
-            .gallery-item.featured {
-                grid-column: span 1;
-                grid-row: span 1;
             }
 
             .letter-container {
                 padding: 30px 20px;
                 transform: rotate(0deg);
-                margin: 0 10px;
             }
 
-            .setup-container {
-                width: 95%;
-                padding: 25px;
-            }
-
-            .photo-grid-inputs {
-                grid-template-columns: 1fr;
-            }
-
-            .photo-grid-inputs div:first-child {
+            .gallery-item.featured {
                 grid-column: span 1;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-hearts {
-                font-size: 3rem;
-            }
-
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-
-            .hero .names {
-                font-size: 1.2rem;
-            }
-
-            .section-title h2 {
-                font-size: 2.5rem;
-            }
-
-            .orbit-nav {
-                gap: 8px;
-            }
-
-            .orbit-icon-btn {
-                width: 35px;
-                height: 35px;
-                font-size: 0.9rem;
-            }
-
-            .cta-btn {
-                width: 100%;
-                padding: 12px 20px;
+                grid-row: span 1;
             }
         }
 
@@ -777,6 +720,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: opacity 0.8s ease;
         }
 
         .setup-container {
