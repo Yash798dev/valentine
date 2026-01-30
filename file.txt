@@ -1,0 +1,165 @@
+Role & Mindset
+Act as a master creative front-end engineer + Telugu cultural storyteller + cinematic UI/UX designer.
+You deeply understand Telugu wedding traditions, Saptapadi (ఏడు అడుగులు), emotional symbolism, and modern web animations.
+
+🧿 Core Concept (VERY IMPORTANT)
+
+This section is inspired by the Telugu Hindu wedding ritual – “సప్తపది”
+Where:
+
+Couples take 7 steps together
+
+Each step represents a promise across lifetimes
+
+Love is not for one birth, but ఏడు జన్మలు
+
+This section should feel like:
+
+“మన ప్రేమ ఒక వారమ కాదు… అది ఏడు జన్మల ప్రయాణం.”
+
+🎯 Goal
+
+Transform the Valentine’s section into a HORIZONTAL “Seven Steps of Eternal Love” journey, where:
+
+Each step = one sacred footstep together
+
+Steps move left → right
+
+Final destination = Valentine’s Day as Eternal Union (❤️)
+
+This should emotionally connect Indian / Telugu couples instantly.
+
+🪔 Structure: Horizontal Sapta Padi Path
+
+Full-width horizontal section
+
+A single continuous path / sacred line
+
+Seven glowing footstep icons (👣) or symbolic pads
+
+Each step connected by:
+
+Sacred thread (Brahma Mudi inspired)
+
+Soft glowing line
+
+Final destination:
+
+Large heart / diya / infinity symbol
+
+🪜 Seven Steps Meaning (DO NOT CHANGE ORDER)
+👣 Step 1 – Rose Day
+
+The First Step of Love
+“This is where our love begins — a gentle step filled with hope, beauty, and the courage to feel.”
+
+👣 Step 2 – Propose Day
+
+Choosing Each Other
+“With this step, I choose you — not just for today, but for every tomorrow we are yet to live.”
+
+👣 Step 3 – Chocolate Day
+
+Sweetness of Togetherness
+“This step reminds us that life will be sweet and bitter, and we promise to share both.”
+
+👣 Step 4 – Teddy Day
+
+Comfort & Shelter
+“In your presence, I find warmth, safety, and a place where my heart can rest.”
+
+👣 Step 5 – Promise Day
+
+A Vow Beyond Words
+“With this step, I promise you — across seven births, across time, across every storm.”
+
+👣 Step 6 – Hug Day
+
+Union of Souls
+“This step brings our hearts closer, where silence speaks and souls embrace.”
+
+👣 Step 7 – Kiss Day
+
+Complete Trust
+“This step seals a bond so deep that words are no longer needed.”
+
+❤️ Final Destination (Highlight This)
+💝 Valentine’s Day – “ఏడు జన్మల బంధం”
+
+Bigger than all steps
+
+Heartbeat animation
+
+Glow + sacred aura
+
+Text:
+
+“ఈ ఏడు అడుగులు… ఏడు జన్మల వరం అయ్యాయి.”
+
+🎨 Visual Direction
+
+Background:
+
+Deep rose → maroon → gold gradient
+
+Footsteps:
+
+Soft glow
+
+Activate one-by-one on scroll
+
+Animation:
+
+Horizontal scroll reveal
+
+Step lights up when reached
+
+Final heart:
+
+Pulse + floating hearts
+
+Emotional climax moment
+
+✨ Interaction (Must Have)
+
+Hover / tap on each step:
+
+Telugu poetic line appears
+
+Scroll progress:
+
+Path fills with light
+
+Final CTA:
+
+“మన ఏడు అడుగుల ప్రేమ 💞”
+
+🛠 Technical Instructions
+
+Use HTML + CSS + JavaScript only
+
+No heavy libraries
+
+Horizontal scroll for desktop
+
+Vertical stacked fallback for mobile
+
+Replace existing Valentine’s Week cards completely
+
+🧠 Copywriting Tone
+
+Deep Telugu emotion
+
+Wedding-level seriousness
+
+Not casual dating vibes
+
+🚀 Final Output Expectations
+
+Premium, cinematic section
+
+Cultural authenticity
+
+Instagram-reel worthy visuals
+
+Couples should feel this is sacred, not just romantic

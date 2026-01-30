@@ -1,0 +1,1866 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💕 My Valentine - With Love 💕</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #e91e63;
+            --secondary: #ff6090;
+            --accent: #ff8a65;
+            --light: #fce4ec;
+            --dark: #880e4f;
+            --gold: #ffd700;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 50%, #f48fb1 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #4a1942;
+        }
+
+
+
+
+        .setup-container {
+            background: rgba(255, 255, 255, 0.85);
+            /* Slightly less opaque */
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 90%;
+            width: 450px;
+            animation: popIn 0.5s ease;
+        }
+
+        /* Floating Hearts Background */
+        .hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 20px;
+            animation: floatUp linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(1);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.6;
+            }
+
+            90% {
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(720deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(233, 30, 99, 0.2);
+        }
+
+        .logo {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '💕';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            transition: transform 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            transform: translateX(-50%) scale(1);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-hearts {
+            font-size: 4rem;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(3rem, 10vw, 6rem);
+            color: var(--primary);
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero .names {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            color: var(--dark);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .hero .names span {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #6d4c5e;
+            max-width: 600px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .cta-btn {
+            padding: 15px 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.4);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(233, 30, 99, 0.5);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            animation: bounce 2s infinite;
+            font-size: 2rem;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-20px);
+            }
+
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #6d4c5e;
+            font-size: 1.1rem;
+        }
+
+        .section-divider {
+            text-align: center;
+            font-size: 2rem;
+            letter-spacing: 10px;
+            margin: 20px 0;
+        }
+
+        /* Valentine's Week Section */
+        .valentine-week {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .day-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .day-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .day-card:hover::before {
+            left: 100%;
+        }
+
+        .day-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(233, 30, 99, 0.2);
+        }
+
+        .day-emoji {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            display: block;
+            animation: wiggle 3s ease-in-out infinite;
+        }
+
+        @keyframes wiggle {
+
+            0%,
+            100% {
+                transform: rotate(-5deg);
+            }
+
+            50% {
+                transform: rotate(5deg);
+            }
+        }
+
+        .day-card h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .day-date {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .day-message {
+            color: #6d4c5e;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Love Story Section */
+        .love-story {
+            background: linear-gradient(135deg, #fff5f8 0%, #ffe0eb 100%);
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            justify-content: flex-start;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-end;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.1);
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(233, 30, 99, 0.2);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px var(--primary);
+        }
+
+        .timeline-year {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-content h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .timeline-content p {
+            color: #6d4c5e;
+            line-height: 1.6;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #fce4ec, #f8bbd9);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.4s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.15);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 20px 50px rgba(233, 30, 99, 0.3);
+        }
+
+        .gallery-item .placeholder-emoji {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+
+        .gallery-item p {
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+
+        .gallery-item.featured {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-item.featured .placeholder-emoji {
+            font-size: 6rem;
+        }
+
+        /* Love Letter Section */
+        .love-letter {
+            background: linear-gradient(135deg, #fff0f3 0%, #ffe4e9 100%);
+        }
+
+        .letter-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #fffbf0;
+            padding: 50px;
+            border-radius: 5px;
+            box-shadow:
+                0 0 0 1px rgba(139, 69, 19, 0.1),
+                0 20px 60px rgba(139, 69, 19, 0.15),
+                inset 0 0 100px rgba(139, 69, 19, 0.05);
+            position: relative;
+            transform: rotate(-1deg);
+        }
+
+        .letter-container::before {
+            content: '💌';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+        }
+
+        .letter-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .letter-header h3 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        .letter-body {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            line-height: 2;
+            color: #4a3728;
+            text-align: justify;
+        }
+
+        .letter-body p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .letter-signature {
+            text-align: right;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-top: 30px;
+        }
+
+        /* Wishes Section */
+        .wishes {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .wishes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .wish-card {
+            background: linear-gradient(135deg, white 0%, #fff5f8 100%);
+            padding: 40px 30px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(233, 30, 99, 0.1);
+            transition: all 0.4s;
+            border: 2px solid transparent;
+        }
+
+        .wish-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(233, 30, 99, 0.2);
+        }
+
+        .wish-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .wish-card h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .wish-card p {
+            color: #6d4c5e;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #ad1457 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+        }
+
+        footer p {
+            opacity: 0.9;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .footer-hearts {
+            font-size: 2.5rem;
+            letter-spacing: 15px;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .footer-credits {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                justify-content: flex-end !important;
+            }
+
+            .timeline-content {
+                width: 85%;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .letter-container {
+                padding: 30px 20px;
+                transform: rotate(0deg);
+            }
+
+            .gallery-item.featured {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+        }
+
+        /* Sparkle Animation */
+        .sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Glow effect */
+        .glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary);
+            }
+
+            to {
+                text-shadow: 0 0 20px var(--primary), 0 0 30px var(--secondary);
+            }
+        }
+
+        /* Setup Overlay */
+        #setup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease;
+        }
+
+        .setup-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(233, 30, 99, 0.3);
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .setup-container h2 {
+            font-family: 'Great Vibes', cursive;
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 0;
+            z-index: 10;
+        }
+
+        .photo-grid-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        /* Make the first item span 2 columns for a centered top input */
+        .photo-grid-inputs div:first-child {
+            grid-column: span 2;
+        }
+
+        @media (max-width: 600px) {
+            .photo-grid-inputs {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .photo-input-label {
+            font-size: 0.9rem;
+            color: var(--dark);
+            margin-bottom: 5px;
+            display: block;
+            font-weight: 500;
+        }
+
+
+        .input-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #f8bbd9;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: var(--primary);
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-label-btn {
+            display: block;
+            background: #fff0f3;
+            color: var(--primary);
+            padding: 12px;
+            border: 2px dashed var(--primary);
+            border-radius: 10px;
+        }
+
+        .file-label-btn:hover {
+            background: #ffe4e9;
+        }
+
+        /* Love Orbit - Compact Interactive Section */
+        .love-orbit-section {
+            background: linear-gradient(135deg, #fff5f8 0%, #fff 100%);
+            padding: 40px 0;
+            /* Reduced padding */
+            overflow: hidden;
+            position: relative;
+            min-height: 500px;
+            /* Constrained height */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .orbit-container {
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        /* Navigation Icon Rail */
+        .orbit-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .orbit-icon-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid #ffdde1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .orbit-icon-btn:hover {
+            transform: translateY(-3px);
+            background: #fff0f3;
+        }
+
+        .orbit-icon-btn.active {
+            background: #ff4081;
+            color: white;
+            border-color: #ff4081;
+            transform: scale(1.15);
+            box-shadow: 0 0 15px rgba(255, 64, 129, 0.4);
+        }
+
+        /* Tooltip for icons */
+        .orbit-icon-btn::after {
+            content: attr(data-day);
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            white-space: nowrap;
+            color: #666;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .orbit-icon-btn:hover::after,
+        .orbit-icon-btn.active::after {
+            opacity: 1;
+        }
+
+        /* Central Detail Card */
+        .orbit-display-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 20px 50px rgba(255, 64, 129, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            transform: translateY(10px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .orbit-display-card.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .display-icon-large {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .display-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            color: #d81b60;
+            margin-bottom: 5px;
+        }
+
+        .display-date {
+            font-size: 0.9rem;
+            color: #ff80ab;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .display-desc {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            .orbit-icon-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .orbit-nav {
+                gap: 10px;
+            }
+
+            .display-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <!-- Setup Overlay (Initially Hidden) -->
+    <div id="setup-overlay">
+        <div class="setup-container">
+            <h2>Welcome 💕</h2>
+            <p style="margin-bottom: 20px; color: #666;">Let's customize your Valentine's surprise!</p>
+            <form id="setupForm">
+                <div class="input-group">
+                    <label>Partner's Name</label>
+                    <input type="text" id="partnerName" placeholder="Enter their beautiful name..." required>
+                </div>
+
+                <div class="input-group">
+                    <label>Your Name</label>
+                    <input type="text" id="senderName" placeholder="Enter your name..." required>
+                </div>
+
+                <h3
+                    style="color:var(--primary); font-family: 'Poppins', sans-serif; font-size: 1.1rem; margin-bottom: 15px; text-align: left;">
+                    Upload Your 5 Precious Memories 📸</h3>
+
+                <div class="photo-grid-inputs">
+                    <div>
+                        <label class="photo-input-label">1. Our Favorite Photo 💑</label>
+                        <input type="file" id="img1" accept="image/*" required class="file-input-small">
+                    </div>
+                    <div>
+                        <label class="photo-input-label">2. Celebrations 🎂</label>
+                        <input type="file" id="img2" accept="image/*" required class="file-input-small">
+                    </div>
+                    <div>
+                        <label class="photo-input-label">3. Travel Adventures ✈️</label>
+                        <input type="file" id="img3" accept="image/*" required class="file-input-small">
+                    </div>
+                    <div>
+                        <label class="photo-input-label">4. Cozy Moments 🏠</label>
+                        <input type="file" id="img4" accept="image/*" required class="file-input-small">
+                    </div>
+                    <div>
+                        <label class="photo-input-label">5. Holiday Magic 🎄</label>
+                        <input type="file" id="img5" accept="image/*" required class="file-input-small">
+                    </div>
+                </div>
+
+                <button type="submit" class="cta-btn" style="width: 100%;">Create Surprise ✨</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Floating Hearts Background -->
+    <div class="hearts-bg" id="heartsContainer"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">💕 Forever Yours</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#week">Valentine's Week</a></li>
+            <li><a href="#story">Our Story</a></li>
+            <li><a href="#gallery">Memories</a></li>
+            <li><a href="#letter">Love Letter</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-hearts">💕💖💕</div>
+        <h1 class="glow">Happy Valentine's Day</h1>
+        <p class="names">To My Dearest <span>[Partner's Name]</span></p>
+        <p class="hero-subtitle">
+            Every love story is beautiful, but ours is my favorite.
+            This Valentine's Week, I want to celebrate every moment we've shared
+            and every dream we'll fulfill together. 💝
+        </p>
+        <a href="#week" class="cta-btn">Explore Our Love Story 💕</a>
+        <div class="scroll-indicator">💗</div>
+    </section>
+
+    <!-- Valentine's Week Section -->
+
+    <!-- Love Orbit Section -->
+    <section class="love-orbit-section" id="week">
+        <div class="section-title">
+            <h2>Love Week Journey</h2>
+            <p>Tap each day to reveal my heart's message</p>
+            <div class="section-divider">💖 ✨ 💖</div>
+        </div>
+
+        <div class="orbit-container">
+            <!-- Navigation Icons -->
+            <div class="orbit-nav">
+                <!-- Data attributes hold the index to show -->
+                <div class="orbit-icon-btn active" data-index="0" data-day="Rose">🌹</div>
+                <div class="orbit-icon-btn" data-index="1" data-day="Propose">💍</div>
+                <div class="orbit-icon-btn" data-index="2" data-day="Chocolate">🍫</div>
+                <div class="orbit-icon-btn" data-index="3" data-day="Teddy">🧸</div>
+                <div class="orbit-icon-btn" data-index="4" data-day="Promise">🤝</div>
+                <div class="orbit-icon-btn" data-index="5" data-day="Hug">🤗</div>
+                <div class="orbit-icon-btn" data-index="6" data-day="Kiss">💋</div>
+                <div class="orbit-icon-btn" data-index="7" data-day="Valentine">💝</div>
+            </div>
+
+            <!-- Dynamic Display Card -->
+            <div class="orbit-display-card show" id="orbitCard">
+                <div class="display-icon-large">🌹</div>
+                <div class="display-content">
+                    <span class="display-date">Feb 7th - Rose Day</span>
+                    <h3 class="display-title">Beginning of Love</h3>
+                    <p class="display-desc">"Every petal whispers my love for you. You are the most beautiful flower in
+                        my garden of life."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Love Story Timeline -->
+    <section class="love-story" id="story">
+        <div class="section-title">
+            <h2>Our Beautiful Journey</h2>
+            <p>The story of us - written in the stars</p>
+            <div class="section-divider">✨ 💕 ✨</div>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-year">📅 When We Met</span>
+                    <h3>The First Glance ✨</h3>
+                    <p>The moment our eyes met, I knew my life was about to change forever. It was like the universe
+                        conspired to bring us together.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-year">📅 First Date</span>
+                    <h3>Butterflies & Smiles 🦋</h3>
+                    <p>Nervous hearts, endless conversations, and the beginning of something magical. That day, I knew I
+                        wanted more moments like this.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-year">📅 Falling in Love</span>
+                    <h3>When I Knew 💕</h3>
+                    <p>It wasn't just one moment - it was every laugh, every late-night talk, every little thing you did
+                        that made me fall deeper in love.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-year">📅 Today & Forever</span>
+                    <h3>Our Forever Story 💖</h3>
+                    <p>Every day with you is a blessing. Here's to countless more memories, adventures, and a lifetime
+                        of love together.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="section-title">
+            <h2>Our Precious Memories</h2>
+            <p>Moments captured, love preserved forever</p>
+            <div class="section-divider">📸 💕 📸</div>
+        </div>
+
+        <div class="gallery-grid" style="justify-content: center;">
+            <div class="gallery-item featured">
+                <span class="placeholder-emoji">💑</span>
+                <p>Our Favorite Photo</p>
+            </div>
+            <!-- Sunset Together Removed -->
+            <div class="gallery-item">
+                <span class="placeholder-emoji">🎂</span>
+                <p>Celebrations</p>
+            </div>
+            <div class="gallery-item">
+                <span class="placeholder-emoji">✈️</span>
+                <p>Travel Adventures</p>
+            </div>
+            <div class="gallery-item">
+                <span class="placeholder-emoji">🏠</span>
+                <p>Cozy Moments</p>
+            </div>
+            <!-- Spring Love Removed -->
+            <div class="gallery-item">
+                <span class="placeholder-emoji">🎄</span>
+                <p>Holiday Magic</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wishes Section -->
+    <section class="wishes">
+        <div class="section-title">
+            <h2>My Wishes For Us</h2>
+            <p>Dreams I hold dear for our beautiful journey</p>
+            <div class="section-divider">⭐ 💕 ⭐</div>
+        </div>
+
+        <div class="wishes-grid">
+            <div class="wish-card">
+                <div class="wish-icon">🌙</div>
+                <h3>Endless Adventures</h3>
+                <p>May we explore the world together, creating memories in every corner of the earth, hand in hand.</p>
+            </div>
+            <div class="wish-card">
+                <div class="wish-icon">💫</div>
+                <h3>Growing Together</h3>
+                <p>May we continue to grow, learn, and become better versions of ourselves, supporting each other
+                    always.</p>
+            </div>
+            <div class="wish-card">
+                <div class="wish-icon">🏡</div>
+                <h3>Our Happy Place</h3>
+                <p>May our home always be filled with laughter, love, warmth, and the sweet sound of happiness.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Love Letter Section -->
+    <section class="love-letter" id="letter">
+        <div class="section-title">
+            <h2>A Letter From My Heart</h2>
+            <p>Words that express what my heart feels</p>
+            <div class="section-divider">💌 💕 💌</div>
+        </div>
+
+        <div class="letter-container">
+            <div class="letter-header">
+                <h3>My Dearest Love</h3>
+            </div>
+            <div class="letter-body">
+                <p>As I write this letter, my heart overflows with emotions that words can barely capture. You came into
+                    my life like a gentle breeze and transformed my world into a beautiful garden of love and happiness.
+                </p>
+
+                <p>Every morning I wake up grateful for you. Your smile is my sunrise, your laugh is my favorite melody,
+                    and your love is the greatest gift I've ever received. With you, ordinary moments become
+                    extraordinary memories.</p>
+
+                <p>This Valentine's Week, I want you to know that you are my everything - my best friend, my confidant,
+                    my partner in crime, and the love of my life. Thank you for choosing to walk this journey with me.
+                </p>
+
+                <p>I promise to love you a little more each day, to be your strength when you're weak, your comfort when
+                    you're sad, and your biggest cheerleader in all your dreams. You deserve the world, and I'll spend
+                    my lifetime trying to give it to you.</p>
+            </div>
+            <div class="letter-signature">
+                Forever & Always Yours,<br>
+                [Your Name] 💕
+            </div>
+        </div>
+    </section>
+
+    <!-- Share Section -->
+    <section class="share-section" style="text-align: center; background: rgba(255,255,255,0.6); padding: 40px 20px;">
+        <div class="section-title" style="margin-bottom: 30px;">
+            <h2>Share Your Love</h2>
+            <p>Send this beautiful surprise to your special someone</p>
+        </div>
+        <button id="openShareModalBtn" class="cta-btn"
+            style="background: linear-gradient(135deg, #9c27b0, #ba68c8); font-size: 1.3rem;">
+            Send to Your Love 💌
+        </button>
+    </section>
+
+    <!-- Share Overlay (New) -->
+    <div id="share-overlay"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10001; display: none; justify-content: center; align-items: center; backdrop-filter: blur(5px);">
+        <div class="setup-container" style="max-width: 400px; animation: popIn 0.3s ease;">
+            <h2
+                style="font-family: 'Great Vibes', cursive; color: var(--primary); font-size: 2rem; margin-bottom: 20px;">
+                Send Surprise 💝</h2>
+            <p style="margin-bottom: 20px;">Click below to generate a unique link for your special one!</p>
+
+            <button id="confirmShareBtn" class="cta-btn" style="width: 100%;">Generate Link 🚀</button>
+
+            <!-- Link Display Area (Initially Hidden) -->
+            <div id="shareLinkContainer" style="display: none; margin-top: 20px; text-align: left;">
+                <label style="font-size: 0.9rem; color: #666; margin-bottom: 5px; display: block;">Your Unique
+                    Link:</label>
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" id="shareLinkInput" readonly
+                        style="width: 100%; padding: 10px; border: 2px solid #e91e63; border-radius: 5px; background: #fff; color: #333;">
+                    <button id="copyLinkBtn"
+                        style="padding: 10px; background: #e91e63; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                        📋
+                    </button>
+                </div>
+                <!-- WhatsApp Share Button -->
+                <a id="whatsappShareBtn" href="#" target="_blank"
+                    style="display: block; margin-top: 15px; padding: 10px; background: #25D366; color: white; text-align: center; text-decoration: none; border-radius: 5px; font-weight: bold;">
+                    Share on WhatsApp 💬
+                </a>
+            </div>
+
+            <button id="closeShareModalBtn"
+                style="margin-top: 15px; background: none; border: none; color: #666; cursor: pointer; text-decoration: underline;">Close</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <h2>Forever & Always</h2>
+        <p>Thank you for being my Valentine, today and every day 💝</p>
+        <div class="footer-hearts">💕 💖 💕 💖 💕</div>
+        <div class="footer-credits">
+            <p>Made with 💕 for the one I love</p>
+            <p>Happy Valentine's Day 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        // Create floating hearts
+        function createFloatingHearts() {
+            const container = document.getElementById('heartsContainer');
+            const hearts = ['💕', '💖', '💗', '💓', '💝', '❤️', '💘', '💞', '🌹', '✨'];
+
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'floating-heart';
+                    heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                    heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                    heart.style.animationDelay = (Math.random() * 5) + 's';
+                    container.appendChild(heart);
+                }, i * 200);
+            }
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply initial styles and observe elements
+        document.querySelectorAll('.day-card, .timeline-content, .gallery-item, .wish-card, .journey-step, .padi-step, .padi-destination, .roadmap-step, .roadmap-destination').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease'; // Increased duration for smoother effect
+            observer.observe(el);
+        });
+
+        // Add sparkle effect on hover for cards
+        document.querySelectorAll('.day-card, .wish-card').forEach(card => {
+            card.addEventListener('mouseenter', function (e) {
+                for (let i = 0; i < 5; i++) {
+                    setTimeout(() => {
+                        const sparkle = document.createElement('div');
+                        sparkle.className = 'sparkle';
+                        sparkle.style.left = Math.random() * 100 + '%';
+                        sparkle.style.top = Math.random() * 100 + '%';
+                        this.appendChild(sparkle);
+                        setTimeout(() => sparkle.remove(), 1500);
+                    }, i * 100);
+                }
+            });
+        });
+
+        // Parallax effect for hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
+            }
+        });
+
+        // Initialize
+        createFloatingHearts();
+
+        // Continuously add new hearts
+        setInterval(() => {
+            const container = document.getElementById('heartsContainer');
+            const hearts = ['💕', '💖', '💗', '💓', '💝', '❤️', '💘', '💞'];
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            container.appendChild(heart);
+
+            // Remove old hearts to prevent memory issues
+            const allHearts = container.querySelectorAll('.floating-heart');
+            if (allHearts.length > 50) {
+                allHearts[0].remove();
+            }
+        }, 2000);
+
+        // Add typing effect to hero subtitle
+        const subtitle = document.querySelector('.hero-subtitle');
+        if (subtitle) {
+            const text = subtitle.textContent;
+            subtitle.textContent = '';
+            let i = 0;
+
+            function typeWriter() {
+                if (i < text.length) {
+                    subtitle.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 30);
+                }
+            }
+
+            setTimeout(typeWriter, 1000);
+        }
+    </script>
+    <script>
+        // Love Orbit Data & Logic
+        const orbitData = [
+            { icon: '🌹', date: 'Feb 7th - Rose Day', title: 'Beginning of Love', desc: 'Every petal whispers my love for you. You are the most beautiful flower in my garden of life.' },
+            { icon: '💍', date: 'Feb 8th - Propose Day', title: 'The Big Question', desc: 'There are 8 billion people in the world, but I only want you. Will you be mine forever?' },
+            { icon: '🍫', date: 'Feb 9th - Chocolate Day', title: 'Sweet Moments', desc: 'Life with you is sweeter than the darkest chocolate. Thank you for adding flavor to my days.' },
+            { icon: '🧸', date: 'Feb 10th - Teddy Day', title: 'Warmth and Comfort', desc: 'I want to be your soft place to land. Giving you a bear-y big hug today and always!' },
+            { icon: '🤝', date: 'Feb 11th - Promise Day', title: 'Forever Vow', desc: 'I promise to stand by you, to laugh with you, and to love you even when we are old and gray.' },
+            { icon: '🤗', date: 'Feb 12th - Hug Day', title: 'Safe Haven', desc: 'One hug from you fixes everything. Your arms are my favorite place in the world.' },
+            { icon: '💋', date: 'Feb 13th - Kiss Day', title: 'Sealed with Love', desc: 'A kiss is the language of the soul. Here is one to tell you how much I adore you.' },
+            { icon: '💝', date: 'Feb 14th - Valentine\'s Day', title: 'My Forever', desc: 'You are my today and all of my tomorrows. Happy Valentine\'s Day, my love!' }
+        ];
+
+        const orbitIcons = document.querySelectorAll('.orbit-icon-btn');
+        const orbitCard = document.getElementById('orbitCard');
+        const displayIcon = orbitCard.querySelector('.display-icon-large');
+        const displayDate = orbitCard.querySelector('.display-date');
+        const displayTitle = orbitCard.querySelector('.display-title');
+        const displayDesc = orbitCard.querySelector('.display-desc');
+
+        let currentOrbitIndex = 0;
+        let orbitInterval;
+
+        function updateOrbit(index) {
+            // Remove active class from all
+            orbitIcons.forEach(icon => icon.classList.remove('active'));
+            // Add active to current
+            orbitIcons[index].classList.add('active');
+
+            // Animate Card Out
+            orbitCard.classList.remove('show');
+
+            setTimeout(() => {
+                // Update Content
+                const data = orbitData[index];
+                displayIcon.textContent = data.icon;
+                displayDate.textContent = data.date;
+                displayTitle.textContent = data.title;
+                displayDesc.textContent = `"${data.desc}"`;
+
+                // Animate Card In
+                orbitCard.classList.add('show');
+            }, 300);
+        }
+
+        function startOrbitAutoPlay() {
+            orbitInterval = setInterval(() => {
+                currentOrbitIndex = (currentOrbitIndex + 1) % orbitData.length;
+                updateOrbit(currentOrbitIndex);
+            }, 4000); // Change every 4 seconds
+        }
+
+        function stopOrbitAutoPlay() {
+            clearInterval(orbitInterval);
+        }
+
+        // Event Listeners
+        orbitIcons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                stopOrbitAutoPlay();
+                const index = parseInt(btn.getAttribute('data-index'));
+                currentOrbitIndex = index;
+                updateOrbit(index);
+            });
+
+            btn.addEventListener('mouseenter', stopOrbitAutoPlay);
+            btn.addEventListener('mouseleave', startOrbitAutoPlay);
+        });
+
+        // Initialize
+        startOrbitAutoPlay();
+
+    </script>
+
+    <script>
+
+        // Setup Logic
+        // No longer needed separate count update for multiple files
+
+        // Separate script block for the logic to avoid syntax errors in previous blocks if any
+        document.getElementById('setupForm').onsubmit = function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('partnerName').value;
+            const senderName = document.getElementById('senderName').value;
+
+            // Collect all file inputs - Reset to 5 specific inputs
+            const inputIds = ['img1', 'img2', 'img3', 'img4', 'img5'];
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            // Function to validate files
+            let allFilesSelected = true;
+            for (let id of inputIds) {
+                if (document.getElementById(id).files.length === 0) {
+                    allFilesSelected = false;
+                    break;
+                }
+            }
+
+            if (!allFilesSelected) {
+                alert("Please select all 5 photos! 📸");
+                return;
+            }
+
+            // Update Name
+            document.querySelector('.hero .names span').textContent = name;
+
+            // Update Love Letter Signature
+            document.querySelector('.letter-signature').innerHTML = `Forever & Always Yours,<br>${senderName} 💕`;
+
+            // Process images
+            inputIds.forEach((id, index) => {
+                const file = document.getElementById(id).files[0];
+                if (file && index < galleryItems.length) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        // Find and replace ONLY the placeholder emoji
+                        const emoji = galleryItems[index].querySelector('.placeholder-emoji');
+                        if (emoji) {
+                            // Create image element
+                            const img = document.createElement('img');
+                            img.src = e.target.result;
+                            img.style.width = '100%';
+                            img.style.height = '80%'; // Reserve space for text
+                            img.style.objectFit = 'cover';
+                            img.style.borderRadius = '15px';
+                            img.style.marginBottom = '10px';
+
+                            // Replace emoji with image
+                            galleryItems[index].replaceChild(img, emoji);
+                        } else {
+                            // Fallback if re-running or structure changed
+                            // Try to insert before the p tag
+                            const p = galleryItems[index].querySelector('p');
+                            if (p) {
+                                const img = document.createElement('img');
+                                img.src = e.target.result;
+                                img.style.width = '100%';
+                                img.style.height = '80%';
+                                img.style.objectFit = 'cover';
+                                img.style.borderRadius = '15px';
+                                img.style.marginBottom = '10px';
+                                galleryItems[index].insertBefore(img, p);
+                            }
+                        }
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Hide Overlay
+            const overlay = document.getElementById('setup-overlay');
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 800);
+        };
+
+        // --- Sharing Logic (New) ---
+        const openShareModalBtn = document.getElementById('openShareModalBtn');
+        const shareOverlay = document.getElementById('share-overlay');
+        const closeShareModalBtn = document.getElementById('closeShareModalBtn');
+        const confirmShareBtn = document.getElementById('confirmShareBtn');
+
+        if (openShareModalBtn) {
+            openShareModalBtn.addEventListener('click', () => {
+                shareOverlay.style.display = 'flex';
+                // Reset State
+                document.getElementById('shareLinkContainer').style.display = 'none';
+                confirmShareBtn.style.display = 'block';
+                confirmShareBtn.textContent = 'Generate Link 🚀';
+                confirmShareBtn.disabled = false;
+            });
+        }
+
+        if (closeShareModalBtn) {
+            closeShareModalBtn.addEventListener('click', () => {
+                shareOverlay.style.display = 'none';
+            });
+        }
+
+        if (confirmShareBtn) {
+            confirmShareBtn.addEventListener('click', async () => {
+                const partnerName = document.getElementById('partnerName').value;
+                const senderName = document.getElementById('senderName').value;
+
+                // Hide button show loading
+                confirmShareBtn.textContent = 'Generating... ⏳';
+                confirmShareBtn.disabled = true;
+
+                const inputIds = ['img1', 'img2', 'img3', 'img4', 'img5'];
+                let allFilesSelected = true;
+                for (let id of inputIds) {
+                    if (!document.getElementById(id).files[0]) {
+                        allFilesSelected = false;
+                        break;
+                    }
+                }
+
+                if (!allFilesSelected) {
+                    alert("It seems the photos are missing. Please refresh and create the surprise again to share. 📸");
+                    confirmShareBtn.textContent = 'Generate Link 🚀';
+                    confirmShareBtn.disabled = false;
+                    return;
+                }
+
+                const formData = new FormData();
+                formData.append('partnerName', partnerName);
+                formData.append('senderName', senderName);
+
+                inputIds.forEach(id => {
+                    formData.append('photos', document.getElementById(id).files[0]);
+                });
+
+                try {
+                    const response = await fetch('http://localhost:3000/api/create-surprise', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const result = await response.json();
+
+                    if (result.success) {
+                        // Show Link
+                        document.getElementById('shareLinkContainer').style.display = 'block';
+                        document.getElementById('shareLinkInput').value = result.link;
+                        confirmShareBtn.style.display = 'none'; // Hide generate button
+
+                        // Update WhatsApp Button
+                        const whatsappBtn = document.getElementById('whatsappShareBtn');
+                        const whatsappText = `Hey! I made a special Valentine's surprise for you! Check it out here: ${result.link}`;
+                        whatsappBtn.href = `https://wa.me/?text=${encodeURIComponent(whatsappText)}`;
+
+                        // Copy Logic
+                        document.getElementById('copyLinkBtn').onclick = () => {
+                            const copyText = document.getElementById('shareLinkInput');
+                            copyText.select();
+                            document.execCommand('copy');
+                            alert('Link Copied! Send it to your love! 💕');
+                        };
+                    } else {
+                        alert('Error sharing: ' + result.error);
+                        confirmShareBtn.textContent = 'Generate Link 🚀';
+                        confirmShareBtn.disabled = false;
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert('Server error. Ensure backend is running! (node server.js)');
+                    confirmShareBtn.textContent = 'Generate Link 🚀';
+                    confirmShareBtn.disabled = false;
+                }
+            });
+        }
+
+        /* Override submit for sharing (Removed)
+            e.preventDefault();
+
+            if (isSharingMode) {
+                const partnerName = document.getElementById('partnerName').value;
+                const senderName = document.getElementById('senderName').value;
+                const email = document.getElementById('partnerEmail').value;
+
+                // Validate files again
+                const inputIds = ['img1', 'img2', 'img3', 'img4', 'img5'];
+                let allFilesSelected = true;
+                for (let id of inputIds) {
+                    if (document.getElementById(id).files.length === 0) {
+                        allFilesSelected = false;
+                        break;
+                    }
+                }
+                if (!allFilesSelected) { alert("Please select all 5 photos! 📸"); return; }
+
+
+                // Prepare FormData
+                const formData = new FormData();
+                formData.append('partnerName', partnerName);
+                formData.append('senderName', senderName);
+                formData.append('email', email);
+
+                inputIds.forEach(id => {
+                    formData.append('photos', document.getElementById(id).files[0]);
+                });
+
+                // Send to Backend
+                const submitBtn = document.querySelector('button[type="submit"]');
+                submitBtn.textContent = 'Sending... ⏳';
+                submitBtn.disabled = true;
+
+                try {
+                    const response = await fetch('http://localhost:3000/api/create-surprise', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const result = await response.json();
+
+                    if (result.success) {
+                        alert(`Surprise Sent! 💌\n\nLink: ${result.link}\nKey: ${result.secretKey}\n\n(Key also sent to email/console)`);
+                        // Proceed to local view
+                        originalSubmit.call(this, e);
+                    } else {
+                        alert('Error sharing: ' + result.error);
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert('Server error. Ensure backend is running! (node server.js)');
+                } finally {
+                    submitBtn.textContent = 'Send Love Link 💌';
+                    submitBtn.disabled = false;
+                }
+
+            } else {
+                // Normal local flow
+                // Use the logic we defined previously (encapsulated in the original function body, 
+                // but since we replaced the handler, we need to invoke the logic manually or copy it.
+                // To avoid complex re-binding, let's just copy the image processing logic here for simplicity.)
+
+                const name = document.getElementById('partnerName').value;
+                const senderName = document.getElementById('senderName').value;
+                const inputIds = ['img1', 'img2', 'img3', 'img4', 'img5'];
+                const galleryItems = document.querySelectorAll('.gallery-item');
+
+                // Validate
+                for (let id of inputIds) {
+                    if (document.getElementById(id).files.length === 0) {
+                        alert("Please select all 5 photos! 📸");
+                        return;
+                    }
+                }
+
+                document.querySelector('.hero .names span').textContent = name;
+                document.querySelector('.letter-signature').innerHTML = `Forever & Always Yours,<br>${senderName} 💕`;
+
+                inputIds.forEach((id, index) => {
+                    const file = document.getElementById(id).files[0];
+                    if (file && index < galleryItems.length) {
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                            const emoji = galleryItems[index].querySelector('.placeholder-emoji');
+                            if (emoji) {
+                                const img = document.createElement('img');
+                                img.src = e.target.result;
+                                img.style.width = '100%';
+                                img.style.height = '80%';
+                                img.style.objectFit = 'cover';
+                                img.style.borderRadius = '15px';
+                                img.style.marginBottom = '10px';
+                                galleryItems[index].replaceChild(img, emoji);
+                            }
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+
+                const overlay = document.getElementById('setup-overlay');
+                overlay.style.opacity = '0';
+                setTimeout(() => { overlay.style.display = 'none'; }, 800);
+            }
+        }; */
+
+        // --- Direct Load Logic (On Load) ---
+        window.onload = async () => {
+            // Check URL Params
+            const urlParams = new URLSearchParams(window.location.search);
+            const surpriseId = urlParams.get('id');
+
+            if (surpriseId) {
+                // Hide default Setup Overlay and show loading
+                const setupOverlay = document.getElementById('setup-overlay');
+                setupOverlay.innerHTML = '<div class="setup-container"><h2>Loading your surprise... 💕</h2></div>';
+                setupOverlay.style.display = 'flex';
+                setupOverlay.style.opacity = '1';
+
+                try {
+                    // Fetch surprise data directly
+                    const response = await fetch(`http://localhost:3000/api/get-surprise/${surpriseId}`);
+                    const result = await response.json();
+
+                    if (result.success) {
+                        // Load Data
+                        const data = result.data;
+
+                        document.querySelector('.hero .names span').textContent = data.partnerName;
+                        document.querySelector('.letter-signature').innerHTML = `Forever & Always Yours,<br>${data.senderName} 💕`;
+
+                        // Load Images
+                        const galleryItems = document.querySelectorAll('.gallery-item');
+                        data.photos.forEach((photo, index) => {
+                            if (index < galleryItems.length) {
+                                // Construct Base64 URI
+                                const imgUrl = `data:${photo.contentType};base64,${photo.data}`;
+
+                                const emoji = galleryItems[index].querySelector('.placeholder-emoji');
+                                if (emoji) {
+                                    const img = document.createElement('img');
+                                    img.src = imgUrl;
+                                    img.style.width = '100%';
+                                    img.style.height = '80%';
+                                    img.style.objectFit = 'cover';
+                                    img.style.borderRadius = '15px';
+                                    img.style.marginBottom = '10px';
+                                    galleryItems[index].replaceChild(img, emoji);
+                                }
+                            }
+                        });
+
+                        // Close Overlay
+                        setupOverlay.style.opacity = '0';
+                        setTimeout(() => { setupOverlay.style.display = 'none'; }, 800);
+
+                        // Hide the Share Section since it's already been shared
+                        const shareSection = document.querySelector('.share-section');
+                        if (shareSection) {
+                            shareSection.style.display = 'none';
+                        }
+                        const shareOverlayEl = document.getElementById('share-overlay');
+                        if (shareOverlayEl) {
+                            shareOverlayEl.style.display = 'none';
+                        }
+
+                    } else {
+                        setupOverlay.innerHTML = '<div class="setup-container"><h2>Surprise not found 😢</h2><p>This link may be invalid or expired.</p></div>';
+                    }
+                } catch (err) {
+                    setupOverlay.innerHTML = '<div class="setup-container"><h2>Connection Error 😢</h2><p>Could not load the surprise. Please try again.</p></div>';
+                }
+            }
+        };
+    </script>
+</body>
+
+</html>
