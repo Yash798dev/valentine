@@ -987,6 +987,191 @@
                 font-size: 1.3rem;
             }
         }
+
+        /* ============================================
+           DO YOU LOVE ME OVERLAY STYLES
+        ============================================ */
+        #love-question-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 50%, #ff6b9d 100%);
+            z-index: 99999;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        #love-question-overlay .love-bg-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        #love-question-overlay .question-container {
+            text-align: center;
+            z-index: 2;
+            padding: 20px;
+        }
+
+        #love-question-overlay .question-text {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            color: white;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 255, 255, 0.5);
+            margin-bottom: 50px;
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 255, 255, 0.5);
+            }
+
+            50% {
+                text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3), 0 0 50px rgba(255, 255, 255, 0.8), 0 0 80px rgba(255, 107, 157, 0.6);
+            }
+        }
+
+        #love-question-overlay .buttons-container {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        #love-question-overlay .love-btn {
+            padding: 20px 60px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        #love-question-overlay #yesBtn {
+            background: linear-gradient(135deg, #00c853, #69f0ae);
+            color: white;
+        }
+
+        #love-question-overlay #yesBtn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 200, 83, 0.5);
+        }
+
+        #love-question-overlay #noBtn {
+            background: linear-gradient(135deg, #ff5252, #ff867c);
+            color: white;
+            position: absolute;
+            transition: all 0.15s ease-out;
+        }
+
+        /* Loop Video (small, corner) */
+        #love-question-overlay #loopVideoContainer {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 180px;
+            height: 120px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            display: none;
+            z-index: 3;
+            border: 3px solid white;
+        }
+
+        #love-question-overlay #loopVideoContainer video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* I Knew It Section */
+        #love-question-overlay #iKnewItSection {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 2;
+        }
+
+        #love-question-overlay #iKnewItSection .knew-it-text {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(3rem, 10vw, 6rem);
+            color: #ffd700;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 215, 0, 0.6);
+            margin-bottom: 30px;
+            animation: bounceIn 0.8s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        #love-question-overlay #iKnewItSection .knew-video-container {
+            width: 90%;
+            max-width: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            border: 4px solid white;
+            margin-bottom: 30px;
+        }
+
+        #love-question-overlay #iKnewItSection .knew-video-container video {
+            width: 100%;
+            display: block;
+        }
+
+        #love-question-overlay #iKnewItSection .countdown-container {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 15px 40px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        #love-question-overlay #iKnewItSection .countdown-label {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: white;
+        }
+
+        #love-question-overlay #iKnewItSection .countdown-timer {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffd700;
+            min-width: 50px;
+        }
     </style>
 </head>
 
@@ -1056,6 +1241,37 @@
 
                 <button type="submit" class="cta-btn" style="width: 100%;">Create Surprise ✨</button>
             </form>
+        </div>
+    </div>
+
+    <!-- Do You Love Me Overlay (For shared links) -->
+    <div id="love-question-overlay">
+        <div class="love-bg-hearts" id="loveBgHearts"></div>
+
+        <!-- Question Section -->
+        <div class="question-container" id="questionContainer">
+            <h2 class="question-text">Do you love me forever? 💕</h2>
+            <div class="buttons-container">
+                <button id="yesBtn" class="love-btn">Yes 💖</button>
+                <button id="noBtn" class="love-btn">No 💔</button>
+            </div>
+        </div>
+
+        <!-- Loop Video (small, bottom-right corner) -->
+        <div id="loopVideoContainer">
+            <video id="loopVideo" src="ezgif-3027a4f8865446e0.mp4" loop muted playsinline></video>
+        </div>
+
+        <!-- I Knew It Section -->
+        <div id="iKnewItSection">
+            <h2 class="knew-it-text">I Knew It! 💖✨</h2>
+            <div class="knew-video-container">
+                <video id="knewItVideo" src="ezgif-51f4fc643aad4b9a.mp4" playsinline></video>
+            </div>
+            <div class="countdown-container">
+                <span class="countdown-label">Opening surprise in</span>
+                <span class="countdown-timer" id="countdownTimer">10</span>
+            </div>
         </div>
     </div>
 
@@ -1903,10 +2119,6 @@
                             }
                         });
 
-                        // Close Overlay
-                        setupOverlay.style.opacity = '0';
-                        setTimeout(() => { setupOverlay.style.display = 'none'; }, 800);
-
                         // Hide the Share Section since it's already been shared
                         const shareSection = document.querySelector('.share-section');
                         if (shareSection) {
@@ -1916,6 +2128,101 @@
                         if (shareOverlayEl) {
                             shareOverlayEl.style.display = 'none';
                         }
+
+                        // === SHOW LOVE QUESTION OVERLAY ===
+                        setupOverlay.style.display = 'none';
+                        const loveOverlay = document.getElementById('love-question-overlay');
+                        loveOverlay.style.display = 'flex';
+
+                        // Create floating hearts in love overlay
+                        const loveBgHearts = document.getElementById('loveBgHearts');
+                        const hearts = ['💕', '💖', '💗', '💓', '💝', '❤️', '💘', '💞', '🌹', '✨'];
+                        for (let i = 0; i < 15; i++) {
+                            setTimeout(() => {
+                                const heart = document.createElement('div');
+                                heart.className = 'floating-heart';
+                                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                                heart.style.left = Math.random() * 100 + '%';
+                                heart.style.fontSize = (Math.random() * 25 + 20) + 'px';
+                                heart.style.animationDuration = (Math.random() * 8 + 8) + 's';
+                                heart.style.animationDelay = (Math.random() * 3) + 's';
+                                loveBgHearts.appendChild(heart);
+                            }, i * 200);
+                        }
+
+                        // === NO BUTTON RUNAWAY LOGIC ===
+                        const noBtn = document.getElementById('noBtn');
+                        const loopVideoContainer = document.getElementById('loopVideoContainer');
+                        const loopVideo = document.getElementById('loopVideo');
+                        let videoStarted = false;
+
+                        function moveNoButton() {
+                            const overlay = document.getElementById('love-question-overlay');
+                            const btnWidth = noBtn.offsetWidth;
+                            const btnHeight = noBtn.offsetHeight;
+                            const maxX = overlay.offsetWidth - btnWidth - 40;
+                            const maxY = overlay.offsetHeight - btnHeight - 40;
+
+                            const newX = Math.random() * maxX + 20;
+                            const newY = Math.random() * maxY + 20;
+
+                            noBtn.style.left = newX + 'px';
+                            noBtn.style.top = newY + 'px';
+                            noBtn.classList.add('runaway');
+
+                            // Start loop video if not already
+                            if (!videoStarted) {
+                                videoStarted = true;
+                                loopVideoContainer.style.display = 'block';
+                                loopVideo.play();
+                            }
+                        }
+
+                        noBtn.addEventListener('mouseenter', moveNoButton);
+                        noBtn.addEventListener('click', moveNoButton);
+                        noBtn.addEventListener('touchstart', (e) => {
+                            e.preventDefault();
+                            moveNoButton();
+                        });
+
+                        // === YES BUTTON LOGIC ===
+                        const yesBtn = document.getElementById('yesBtn');
+                        const questionContainer = document.getElementById('questionContainer');
+                        const iKnewItSection = document.getElementById('iKnewItSection');
+                        const knewItVideo = document.getElementById('knewItVideo');
+                        const countdownTimer = document.getElementById('countdownTimer');
+
+                        yesBtn.addEventListener('click', () => {
+                            // Hide question, show I Knew It
+                            questionContainer.style.display = 'none';
+                            noBtn.style.display = 'none';
+                            loopVideoContainer.style.display = 'none';
+                            loopVideo.pause();
+
+                            iKnewItSection.style.display = 'flex';
+                            knewItVideo.play();
+
+                            // Start 10 second countdown
+                            let countdown = 10;
+                            countdownTimer.textContent = countdown;
+
+                            const countdownInterval = setInterval(() => {
+                                countdown--;
+                                countdownTimer.textContent = countdown;
+
+                                if (countdown <= 0) {
+                                    clearInterval(countdownInterval);
+
+                                    // Hide love overlay and reveal surprise
+                                    loveOverlay.style.opacity = '0';
+                                    loveOverlay.style.transition = 'opacity 0.8s ease';
+                                    setTimeout(() => {
+                                        loveOverlay.style.display = 'none';
+                                        knewItVideo.pause();
+                                    }, 800);
+                                }
+                            }, 1000);
+                        });
 
                     } else {
                         setupOverlay.innerHTML = '<div class="setup-container"><h2>Surprise not found 😢</h2><p>This link may be invalid or expired.</p></div>';
