@@ -1911,10 +1911,10 @@
 
                 try {
                     // Determine API URL
-                    // If on deployed site or localhost server, use relative path
-                    // If opening file directly (file://), use localhost:3000
+                    // If opening file directly (file://), use the deployed URL
+                    // Otherwise use relative path (works on deployed site)
                     const isLocalFile = window.location.protocol === 'file:';
-                    const baseUrl = 'https://valentine-g6iv.onrender.com';
+                    const baseUrl = isLocalFile ? 'https://valentine-g6iv.onrender.com' : '';
 
                     const response = await fetch(`${baseUrl}/api/create-surprise`, {
                         method: 'POST',
@@ -2075,8 +2075,10 @@
 
                 try {
                     // Determine API URL
+                    // If opening file directly (file://), use deployed URL
+                    // Otherwise use relative path (works on deployed site)
                     const isLocalFile = window.location.protocol === 'file:';
-                    const baseUrl = "https://valentine-g6iv.onrender.com";
+                    const baseUrl = isLocalFile ? 'https://valentine-g6iv.onrender.com' : '';
 
                     // Fetch surprise data directly
                     const response = await fetch(`${baseUrl}/api/get-surprise/${surpriseId}`);
