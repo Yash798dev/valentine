@@ -1875,7 +1875,7 @@
                 const senderName = document.getElementById('senderName').value;
 
                 // Hide button show loading
-                confirmShareBtn.textContent = 'Romantic Letter for your Love is Cooking Strongly Wait for 2-3 Minutes... ⏳';
+                confirmShareBtn.textContent = 'Compressing images... ⏳';
                 confirmShareBtn.disabled = true;
 
                 const inputIds = ['img1', 'img2', 'img3', 'img4', 'img5'];
@@ -1894,25 +1894,67 @@
                     return;
                 }
 
-                const formData = new FormData();
-                formData.append('partnerName', partnerName);
-                formData.append('senderName', senderName);
+                // Client-side image compression function
+                async function compressImage(file, maxWidth = 600, quality = 0.6) {
+                    return new Promise((resolve) => {
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            const img = new Image();
+                            img.onload = () => {
+                                const canvas = document.createElement('canvas');
+                                let width = img.width;
+                                let height = img.height;
 
-                // Include custom letter if toggle is on
-                const editLetterToggle = document.getElementById('editLetterToggle');
-                const customLetterText = document.getElementById('customLetter').value.trim();
-                if (editLetterToggle.checked && customLetterText) {
-                    formData.append('customLetter', customLetterText);
+                                // Resize if larger than maxWidth
+                                if (width > maxWidth) {
+                                    height = (height * maxWidth) / width;
+                                    width = maxWidth;
+                                }
+
+                                canvas.width = width;
+                                canvas.height = height;
+                                const ctx = canvas.getContext('2d');
+                                ctx.drawImage(img, 0, 0, width, height);
+
+                                canvas.toBlob((blob) => {
+                                    resolve(new File([blob], file.name, { type: 'image/jpeg' }));
+                                }, 'image/jpeg', quality);
+                            };
+                            img.src = e.target.result;
+                        };
+                        reader.readAsDataURL(file);
+                    });
                 }
 
-                inputIds.forEach(id => {
-                    formData.append('photos', document.getElementById(id).files[0]);
-                });
-
                 try {
+                    // Compress all images first
+                    confirmShareBtn.textContent = 'Preparing your surprise... 🎁';
+                    const compressedFiles = [];
+                    for (let i = 0; i < inputIds.length; i++) {
+                        const file = document.getElementById(inputIds[i]).files[0];
+                        const compressed = await compressImage(file);
+                        compressedFiles.push(compressed);
+                    }
+
+                    const formData = new FormData();
+                    formData.append('partnerName', partnerName);
+                    formData.append('senderName', senderName);
+
+                    // Include custom letter if toggle is on
+                    const editLetterToggle = document.getElementById('editLetterToggle');
+                    const customLetterText = document.getElementById('customLetter').value.trim();
+                    if (editLetterToggle.checked && customLetterText) {
+                        formData.append('customLetter', customLetterText);
+                    }
+
+                    // Add compressed images
+                    compressedFiles.forEach(file => {
+                        formData.append('photos', file);
+                    });
+
+                    confirmShareBtn.textContent = 'Sending to server... 💕';
+
                     // Determine API URL
-                    // If opening file directly (file://), use the deployed URL
-                    // Otherwise use relative path (works on deployed site)
                     const isLocalFile = window.location.protocol === 'file:';
                     const baseUrl = isLocalFile ? 'https://valentine-g6iv.onrender.com' : '';
 
