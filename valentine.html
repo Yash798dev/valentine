@@ -1078,19 +1078,17 @@
             transition: all 0.15s ease-out;
         }
 
-        /* Loop Video (small, corner) */
+        /* Loop Video (centered, above question) */
         #love-question-overlay #loopVideoContainer {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 180px;
-            height: 120px;
-            border-radius: 15px;
+            position: relative;
+            width: 220px;
+            height: 160px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
-            display: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             z-index: 3;
-            border: 3px solid white;
+            border: 4px solid white;
+            margin-bottom: 30px;
         }
 
         #love-question-overlay #loopVideoContainer video {
@@ -1248,6 +1246,11 @@
     <div id="love-question-overlay">
         <div class="love-bg-hearts" id="loveBgHearts"></div>
 
+        <!-- Loop Video (centered, above question) -->
+        <div id="loopVideoContainer">
+            <video id="loopVideo" src="ezgif-3027a4f8865446e0.mp4" loop muted playsinline autoplay></video>
+        </div>
+
         <!-- Question Section -->
         <div class="question-container" id="questionContainer">
             <h2 class="question-text">Do you love me forever? 💕</h2>
@@ -1257,16 +1260,11 @@
             </div>
         </div>
 
-        <!-- Loop Video (small, bottom-right corner) -->
-        <div id="loopVideoContainer">
-            <video id="loopVideo" src="ezgif-3027a4f8865446e0.mp4" loop muted playsinline></video>
-        </div>
-
         <!-- I Knew It Section -->
         <div id="iKnewItSection">
             <h2 class="knew-it-text">I Knew It! 💖✨</h2>
             <div class="knew-video-container">
-                <video id="knewItVideo" src="ezgif-51f4fc643aad4b9a.mp4" playsinline></video>
+                <video id="knewItVideo" src="ezgif-51f4fc643aad4b9a.mp4" loop playsinline></video>
             </div>
             <div class="countdown-container">
                 <span class="countdown-label">Opening surprise in</span>
@@ -2154,7 +2152,9 @@
                         const noBtn = document.getElementById('noBtn');
                         const loopVideoContainer = document.getElementById('loopVideoContainer');
                         const loopVideo = document.getElementById('loopVideo');
-                        let videoStarted = false;
+
+                        // Start video playing when overlay opens
+                        loopVideo.play();
 
                         function moveNoButton() {
                             const overlay = document.getElementById('love-question-overlay');
@@ -2169,13 +2169,6 @@
                             noBtn.style.left = newX + 'px';
                             noBtn.style.top = newY + 'px';
                             noBtn.classList.add('runaway');
-
-                            // Start loop video if not already
-                            if (!videoStarted) {
-                                videoStarted = true;
-                                loopVideoContainer.style.display = 'block';
-                                loopVideo.play();
-                            }
                         }
 
                         noBtn.addEventListener('mouseenter', moveNoButton);
