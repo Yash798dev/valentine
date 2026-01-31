@@ -2076,7 +2076,7 @@
                 try {
                     // Determine API URL
                     const isLocalFile = window.location.protocol === 'file:';
-                    const baseUrl = isLocalFile ? 'http://localhost:3000' : '';
+                    const baseUrl = "https://valentine-g6iv.onrender.com";
 
                     // Fetch surprise data directly
                     const response = await fetch(`${baseUrl}/api/get-surprise/${surpriseId}`);
